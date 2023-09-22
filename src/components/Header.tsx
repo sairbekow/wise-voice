@@ -19,7 +19,7 @@ export default function Header(props: HeaderProps) {
 
   return (
     <React.Fragment>
-      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', marginBottom: 5 }}>
         {/* <Button size="small">Subscribe</Button> */}
         <Typography
           component="h2"
@@ -37,24 +37,6 @@ export default function Header(props: HeaderProps) {
         <Button variant="outlined" size="small">
           Катталуу
         </Button>
-      </Toolbar>
-      <Toolbar
-        component="nav"
-        variant="dense"
-        sx={{ justifyContent: 'flex-start', overflowX: 'auto' }}
-      >
-        {sections.map((section) => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            sx={{ p: 1, flexShrink: 0 }}
-          >
-            {section.title}
-          </Link>
-        ))}
       </Toolbar>
     </React.Fragment>
   );

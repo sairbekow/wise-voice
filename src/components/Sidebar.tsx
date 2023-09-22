@@ -1,15 +1,18 @@
-import * as React from 'react';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
+import * as React from "react";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import { List, ListItem, ListItemText } from "@mui/material";
+
+interface ILink {
+  title: string;
+  url: string;
+}
 
 interface SidebarProps {
-  archives: ReadonlyArray<{
-    url: string;
-    title: string;
-  }>;
+  links: ILink[];
   description: string;
   social: ReadonlyArray<{
     icon: React.ElementType;
@@ -19,24 +22,28 @@ interface SidebarProps {
 }
 
 export default function Sidebar(props: SidebarProps) {
-  const { archives, description, social, title } = props;
+  const { links, description, social, title } = props;
 
   return (
-    <Grid item xs={12} md={4}>
-      <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200' }}>
-        <Typography variant="h6" gutterBottom>
-          {title}
-        </Typography>
-        <Typography>{description}</Typography>
-      </Paper>
-      <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-        Archives
-      </Typography>
-      {archives.map((archive) => (
-        <Link display="block" variant="body1" href={archive.url} key={archive.title}>
-          {archive.title}
-        </Link>
-      ))}
+    <Grid item xs={12} md={12} lg={12}>
+      <List dense={true}>
+        {links.map((link) => (
+          <ListItem sx={{paddingLeft: 0}}>
+            <Link
+              color="inherit"
+              noWrap
+              key={link.title}
+              variant="body2"
+              href={link.url}
+              underline="none"
+              sx={{ p: 0, flexShrink: 0 }}
+            >
+              <ListItemText primary={link.title} />
+            </Link>
+          </ListItem>
+        ))}
+      </List>
+
       <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
         Social
       </Typography>
