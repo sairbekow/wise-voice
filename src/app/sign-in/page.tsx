@@ -13,7 +13,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
-import { theme } from "@/theme";
+import { theme } from "@/theme/ThemeRegistry";
 import Link from "next/link";
 
 function Copyright(props: any) {
