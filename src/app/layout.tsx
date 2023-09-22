@@ -4,6 +4,7 @@ import Container from '@mui/material/Container'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ThemeRegistry from '@/theme/ThemeRegistry'
+import '@/i18n'
 
 const sections = [
   { title: 'Мыйзамдар архиви', url: '#' },
@@ -21,19 +22,21 @@ interface IProps {
 
 export default function RootLayout({ children }: IProps) {
   return (
-    <html lang="en">
-      <ThemeRegistry>
-        <body>
-          <Container maxWidth="lg">
-            <Header title="Мыйзам долбоору" sections={sections} />
-            {children}
-          </Container>
-          <Footer
-            title="Footer"
-            description="Something here to give the footer a purpose!"
-          />
-        </body>
-      </ThemeRegistry>
+    <html>
+      <body>
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <ThemeRegistry>
+            <Container maxWidth="lg">
+              <Header title="Мыйзам долбоору" sections={sections} />
+              {children}
+            </Container>
+            <Footer
+              title="Footer"
+              description="Something here to give the footer a purpose!"
+            />
+          </ThemeRegistry>
+        </React.Suspense>
+      </body>
     </html>
   )
 }

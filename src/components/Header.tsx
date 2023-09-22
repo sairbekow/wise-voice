@@ -1,3 +1,4 @@
+'use client'
 import * as React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
@@ -5,6 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from 'next-i18next';
 
 interface HeaderProps {
   sections: ReadonlyArray<{
@@ -15,6 +18,7 @@ interface HeaderProps {
 }
 
 export default function Header(props: HeaderProps) {
+  const { t, i18n } = useTranslation() 
   const { sections, title } = props;
 
   return (
@@ -29,14 +33,16 @@ export default function Header(props: HeaderProps) {
           noWrap
           sx={{ flex: 1 }}
         >
-          {title}
+          {t("title")}
         </Typography>
+
         <IconButton>
           <SearchIcon />
         </IconButton>
         <Button variant="outlined" size="small">
           Катталуу
         </Button>
+      <LanguageSwitcher/>
       </Toolbar>
     </React.Fragment>
   );

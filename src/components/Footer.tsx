@@ -1,8 +1,10 @@
+'use client'
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import { useMediaQuery } from '@mui/material';
 
 function Copyright() {
   return (
@@ -23,10 +25,11 @@ interface FooterProps {
 }
 
 export default function Footer(props: FooterProps) {
+  const matches = useMediaQuery("(max-width:1280px)");
   const { description, title } = props;
 
   return (
-    <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6, mb: '50px' }}>
+    <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6, mb: matches ? '50px' : '0px' }}>
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom>
           {title}
