@@ -18,7 +18,6 @@ interface IProps {
 }
 
 const sidebar = {
-  title: 'About',
   description:
     'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
   social: [
@@ -33,22 +32,37 @@ export default function RootLayout({ children }: IProps) {
   return (
     <html lang="kg">
       <body style={{ height: '100%' }}>
-        <React.Suspense fallback={<div>Loading...</div>}>
-          <ThemeRegistry>
-            <Box
-              component={'div'}
-              sx={{ display: 'flex', flexDirection: 'column' }}
-            >
-              <Container maxWidth="lg">
-                <Header />
-                <Grid container spacing={2} gap={1} item={true}>
-                  <Grid xs={0} md={2} lg={2} item={true}>
-                    {!matches && (
-                      <Sidebar
-                        title={sidebar.title}
-                        description={sidebar.description}
-                        social={sidebar.social}
-                      />
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <ThemeRegistry>
+              <Box
+                component={'div'}
+                sx={{ display: 'flex', flexDirection: 'column' }}
+              >
+                <Container maxWidth="lg">
+                  <Header />
+                  <Grid container spacing={2} gap={1} item={true}>
+                    <Grid xs={0} md={2} lg={2} item={true}>
+                      {!matches && (
+                        <Sidebar
+                          description={sidebar.description}
+                          social={sidebar.social}
+                        />
+                      )}
+                    </Grid>
+                    <Grid
+                      xs={12}
+                      md={9}
+                      lg={9}
+                      gap={1}
+                      justifyContent="center"
+                      item={true}
+                    >
+                      {children}
+                    </Grid>
+                    {matches && (
+                      <Grid xs={12} gap={1} item={true}>
+                        <SimpleBottomNavigation />
+                      </Grid>
                     )}
                   </Grid>
                   <Grid

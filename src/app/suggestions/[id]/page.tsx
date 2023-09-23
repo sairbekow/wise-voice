@@ -19,6 +19,7 @@ import SendIcon from '@mui/icons-material/Send'
 import { useLaw } from '@/store/store'
 import { ILaw } from '@/models'
 import NotFound from '@/ui/NotFound'
+import Loader from '@/ui/Loader'
 
 interface IProps {
   params: {
@@ -26,19 +27,32 @@ interface IProps {
   }
 }
 
-const comments = [1, 2, 3, 4]
-
 const Law = ({ params }: IProps) => {
-  const { getLaw, like, currentLaw } = useLaw()
+  const {
+    getLaw,
+    getAllComments,
+    addComment,
+    like,
+    currentLaw,
+    commentsUnderCurrentLaw,
+  } = useLaw()
+  const [comment, setComment] = useState('')
 
   useEffect(() => {
     const law = getLaw(+params.id)
-    console.log(law)
+    const comments = getAllComments(+params.id)
+
+    console.log(law, comments)
   }, [])
 
   if (currentLaw === undefined) {
-    return <NotFound />
+    return (
+      <Box display={'flex'} justifyContent={'center'} mt={30}>
+        <Loader />
+      </Box>
+    )
   }
+
   return (
     <Box sx={{ minWidth: 275, m: 2, my: 5 }}>
       <Card variant="outlined">
@@ -76,7 +90,9 @@ const Law = ({ params }: IProps) => {
           <Box>
             <Button
               sx={{ color: currentLaw.liked ? 'green' : 'gray' }}
-              onClick={() => like(currentLaw?.author?.id || 0, currentLaw?.id || 0)}
+              onClick={() =>
+                like(currentLaw?.author?.id || 0, currentLaw?.id || 0)
+              }
             >
               <AiOutlineLike size={30} />
             </Button>
@@ -104,22 +120,22 @@ const Law = ({ params }: IProps) => {
           size="small"
           sx={{ width: '100%', marginRight: '20px' }}
           multiline
-          // onChange={(e) => setComment(e.target.value)}
+          onChange={(e) => setComment(e.target.value)}
         />
         <Button
           variant="contained"
           endIcon={<SendIcon />}
-          // onClick={handleSendComment}
+          onClick={() => addComment(7, +params.id, comment)}
         >
           Жөнөт
         </Button>
       </Box>
       <List>
-        {comments.map((comment, id) => (
+        {commentsUnderCurrentLaw.map((comment, id) => (
           <Comment
-            author={'shamir'}
-            authorId={13123}
-            text={'some comment text ' + id}
+            author={comment.author}
+            authorId={comment.authorId}
+            text={comment.text}
             date={'2022-03-25'}
           />
         ))}

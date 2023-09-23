@@ -9,6 +9,7 @@ import { ROUTES } from '@/models/routes'
 interface SidebarProps {
   description: string
   social: ReadonlyArray<{
+<<<<<<< HEAD
     icon: React.ElementType
     name: string
   }>
@@ -17,6 +18,15 @@ interface SidebarProps {
 
 export default function Sidebar(props: SidebarProps) {
   const { description, social, title } = props
+=======
+    icon: React.ElementType;
+    name: string;
+  }>;
+}
+
+export default function Sidebar(props: SidebarProps) {
+  const { description, social } = props;
+>>>>>>> 413cc61 (documents started)
 
   return (
     <Grid item xs={12} md={12} lg={12}>

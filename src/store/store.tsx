@@ -5,6 +5,9 @@ import { $api } from '@/utils/axios'
 export const useLaw = create<ILawState>((set, get) => ({
   laws: [],
   currentLaw: undefined,
+  commentsUnderCurrentLaw: [],
+  filter: '',
+  search: '',
   loading: false,
   error: null,
   fetchLaws: async () => {
@@ -81,5 +84,44 @@ export const useLaw = create<ILawState>((set, get) => ({
       else set({ error: 'Uknown error!' })
     }
   },
+  getAllComments: async (id) => {
+    try {
+      const result = await $api.get<ILaw, any>(
+        `/Suggestions/GetComments?suggestionId=${id}`
+      )
+      set({ commentsUnderCurrentLaw: result.data })
+      console.log('comments', result)
+    } catch (error) {
+      if (error instanceof Error) set({ error: error.message })
+      else set({ error: 'Uknown error!' })
+    }
+  },
+  addComment: async (authorId, lawId, text) => {
+    try {
+      const data = {
+        id: 0,
+        authorId,
+        suggestionId: lawId,
+        text,
+      }
+      const result = await $api.post<ILaw, any>('/Suggestions/AddComment', data)
+      console.log(result)
+      set({ commentsUnderCurrentLaw: [...get().commentsUnderCurrentLaw, data] })
+    } catch (error) {
+      if (error instanceof Error) set({ error: error.message })
+      else set({ error: 'Uknown error!' })
+    }
+  },
+  setFilter: (filter) => {
+    set({filter})
+  },
+  setSearch: (search) => {
+    set({search})
+  },
   vote: (id) => null,
+}))
+
+
+export const useDocument = create((set, get) => ({
+  documents: []
 }))

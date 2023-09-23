@@ -1,3 +1,4 @@
+'use client'
 import {
     Avatar,
     Box,
@@ -7,9 +8,10 @@ import {
     ListItemText,
   } from "@mui/material";
   import DeleteIcon from "@mui/icons-material/Delete";
+import { IUser } from "@/models";
   
   interface IComment {
-    author: string | undefined | null;
+    author?: IUser | undefined | null;
     text: string;
     authorId: number;
     date: string;
@@ -35,7 +37,7 @@ import {
       >
         <Box>
           <Box display={"flex"} alignItems={'center'}>
-            <h4 style={{ marginRight: "15px", textAlign: "left" }}>{author}</h4>
+            <h4 style={{ marginRight: "15px", textAlign: "left" }}>{author?.name}</h4>
             <p style={{ textAlign: "left", color: "gray" }}>{`${new Date(
               Date.parse(date)
             ).toLocaleDateString()}`}</p>
