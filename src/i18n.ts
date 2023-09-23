@@ -11,7 +11,6 @@ i18n
   .init({
     fallbackLng: 'kg',
     debug: true,
-
     interpolation: {
       escapeValue: false,
     }

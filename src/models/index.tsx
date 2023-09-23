@@ -1,25 +1,35 @@
 export interface IUser {
-  name: string;
-  pin: string;
-  createdAt: Date;
+  id: number
+  name: string
+  patronomyc: string
+  phoneNumber: string
+  pin: number
+  role: 1 | 2
+  surname: string
+  walletAddress: string
 }
 
 export interface ILaw {
-  id: string;
-  name: string;
-  description: string;
-  author: IUser;
-  createdAt: Date;
+  id?: number
+  authorId: number
+  author?: IUser
+  title: string
+  content: string
+  liked: boolean
+  likes: number
+  viewed: number
+  createdAt?: string
 }
 
 export interface ILawState {
-  laws: ILaw[];
-  loading: boolean,
-  error: string | null,
-  fetchLaws: () => void,
-  getLaw: (id: string) => ILaw | undefined;
-  addLaw: (law: ILaw) => void;
-  editLaw: (id: string, law: ILaw) => void;
-  removeLaw: (id: string) => void;
-  vote: (id: string) => void;
+  laws: ILaw[]
+  currentLaw: ILaw | undefined
+  loading: boolean
+  error: string | null
+  fetchLaws: () => void
+  getLaw: (id: number) => void
+  addLaw: (userId: number, title: string, content: string) => void
+  removeLaw: (id: number) => void
+  like: (userId: number, lawId: number) => void
+  vote: (id: number) => void
 }

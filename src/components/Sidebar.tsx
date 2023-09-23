@@ -3,16 +3,11 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
+import Link from "next/link";
 import { List, ListItem, ListItemText } from "@mui/material";
-
-interface ILink {
-  title: string;
-  url: string;
-}
+import { ROUTES } from "@/models/routes";
 
 interface SidebarProps {
-  links: ILink[];
   description: string;
   social: ReadonlyArray<{
     icon: React.ElementType;
@@ -22,23 +17,20 @@ interface SidebarProps {
 }
 
 export default function Sidebar(props: SidebarProps) {
-  const { links, description, social, title } = props;
+  const { description, social, title } = props;
 
   return (
     <Grid item xs={12} md={12} lg={12}>
       <List dense={true}>
-        {links.map((link) => (
+        {ROUTES.map((link) => (
           <ListItem sx={{paddingLeft: 0}}>
             <Link
               color="inherit"
-              noWrap
               key={link.title}
-              variant="body2"
               href={link.url}
-              underline="none"
-              sx={{ p: 0, flexShrink: 0 }}
+              style={{ padding: 0, flexShrink: 0 }}
             >
-              <ListItemText primary={link.title} />
+              <ListItemText primary={link.title} sx={{fontSize: '24px'}} />
             </Link>
           </ListItem>
         ))}
@@ -49,11 +41,9 @@ export default function Sidebar(props: SidebarProps) {
       </Typography>
       {social.map((network) => (
         <Link
-          display="block"
-          variant="body1"
           href="#"
           key={network.name}
-          sx={{ mb: 0.5 }}
+          style={{ marginBottom: '0.5px' }}
         >
           <Stack direction="row" spacing={1} alignItems="center">
             <network.icon />
@@ -61,6 +51,7 @@ export default function Sidebar(props: SidebarProps) {
           </Stack>
         </Link>
       ))}
+      <Link href='/about-us'>About us</Link>
     </Grid>
   );
 }

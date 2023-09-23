@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import Box from '@mui/material/Box'
-import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
@@ -13,13 +12,12 @@ export default function LanguageSwitcher() {
 
   const handleChange = (event: SelectChangeEvent) => {
     setlanguage(event.target.value as string)
-    i18n.changeLanguage(event.target.value as string)
+    i18n.changeLanguage(event.target.value)
   }
 
   return (
     <Box sx={{ minWidth: 70, ml: 2 }}>
       <FormControl variant="standard">
-        {/* <InputLabel id="demo-simple-select-label">Lang</InputLabel> */}
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"

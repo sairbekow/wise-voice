@@ -1,29 +1,23 @@
 'use client'
-import * as React from 'react';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-import LanguageSwitcher from './LanguageSwitcher';
-import { useTranslation } from 'next-i18next';
+import * as React from 'react'
+import Toolbar from '@mui/material/Toolbar'
+import Button from '@mui/material/Button'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import LanguageSwitcher from '../ui/LanguageSwitcher'
+import { useTranslation } from 'next-i18next'
+import SearchInput from '../ui/SearchInput'
+import CreateButton from '../ui/CreateButton'
+import AuthButton from '../ui/AuthButton'
 
-interface HeaderProps {
-  sections: ReadonlyArray<{
-    title: string;
-    url: string;
-  }>;
-  title: string;
-}
-
-export default function Header(props: HeaderProps) {
-  const { t, i18n } = useTranslation() 
-  const { sections, title } = props;
+export default function Header() {
+  const { t, i18n } = useTranslation()
 
   return (
     <React.Fragment>
-      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', marginBottom: 5 }}>
+      <Toolbar
+        sx={{ borderBottom: 1, borderColor: 'divider', marginBottom: 5 }}
+      >
         {/* <Button size="small">Subscribe</Button> */}
         <Typography
           component="h2"
@@ -33,17 +27,12 @@ export default function Header(props: HeaderProps) {
           noWrap
           sx={{ flex: 1 }}
         >
-          {t("title")}
+          {t('title')}
         </Typography>
-
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
-        <Button variant="outlined" size="small">
-          Катталуу
-        </Button>
-      <LanguageSwitcher/>
+        <CreateButton />
+        <AuthButton />
+        <LanguageSwitcher />
       </Toolbar>
     </React.Fragment>
-  );
+  )
 }
