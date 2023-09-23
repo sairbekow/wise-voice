@@ -1,4 +1,5 @@
 'use client'
+
 import * as React from 'react'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import FacebookIcon from '@mui/icons-material/Facebook'
@@ -32,48 +33,48 @@ export default function RootLayout({ children }: IProps) {
   return (
     <html lang="kg">
       <body style={{ height: '100%' }}>
-          <React.Suspense fallback={<div>Loading...</div>}>
-            <ThemeRegistry>
-              <Box
-                component={'div'}
-                sx={{ display: 'flex', flexDirection: 'column' }}
-              >
-                <Container maxWidth="lg">
-                  <Header />
-                  <Grid container spacing={2} gap={1} item={true}>
-                    <Grid xs={0} md={2} lg={2} item={true}>
-                      {!matches && (
-                        <Sidebar
-                          title={sidebar.title}
-                          description={sidebar.description}
-                          social={sidebar.social}
-                        />
-                      )}
-                    </Grid>
-                    <Grid
-                      xs={12}
-                      md={9}
-                      lg={9}
-                      gap={1}
-                      justifyContent="center"
-                      item={true}
-                    >
-                      {children}
-                    </Grid>
-                    {matches && (
-                      <Grid xs={12} gap={1} item={true}>
-                        <SimpleBottomNavigation />
-                      </Grid>
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <ThemeRegistry>
+            <Box
+              component={'div'}
+              sx={{ display: 'flex', flexDirection: 'column' }}
+            >
+              <Container maxWidth="lg">
+                <Header />
+                <Grid container spacing={2} gap={1} item={true}>
+                  <Grid xs={0} md={2} lg={2} item={true}>
+                    {!matches && (
+                      <Sidebar
+                        title={sidebar.title}
+                        description={sidebar.description}
+                        social={sidebar.social}
+                      />
                     )}
                   </Grid>
-                </Container>
-                {/* <Footer
+                  <Grid
+                    xs={12}
+                    md={9}
+                    lg={9}
+                    gap={1}
+                    justifyContent="center"
+                    item={true}
+                  >
+                    {children}
+                  </Grid>
+                  {matches && (
+                    <Grid xs={12} gap={1} item={true}>
+                      <SimpleBottomNavigation />
+                    </Grid>
+                  )}
+                </Grid>
+              </Container>
+              {/* <Footer
                 title="Footer"
                 description="Something here to give the footer a purpose!"
               /> */}
-              </Box>
-            </ThemeRegistry>
-          </React.Suspense>
+            </Box>
+          </ThemeRegistry>
+        </React.Suspense>
       </body>
     </html>
   )

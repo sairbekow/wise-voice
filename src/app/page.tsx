@@ -22,7 +22,7 @@ export default function Home() {
       ) : (
         <div>
           {laws.map((law) => (
-            <LawCard {...law} />
+            <LawCard key={law.id} {...law} />
           ))}
         </div>
       )}

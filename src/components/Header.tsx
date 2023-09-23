@@ -1,17 +1,24 @@
 'use client'
+
 import * as React from 'react'
 import Toolbar from '@mui/material/Toolbar'
-import Button from '@mui/material/Button'
-import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import { useTranslation } from 'next-i18next'
-import SearchInput from '../ui/SearchInput'
 import CreateButton from '../ui/CreateButton'
 import AuthButton from '../ui/AuthButton'
+import { useEffect, useState } from 'react'
 
 export default function Header() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
+
+  const [initialRenderComplete, setInitialRenderComplete] = useState<boolean>(false);
+
+  useEffect(() => {
+    setInitialRenderComplete(true);
+  }, []);
+
+  if (!initialRenderComplete) return <></>;
 
   return (
     <React.Fragment>

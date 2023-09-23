@@ -7,7 +7,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 import { useTranslation } from 'next-i18next'
 
 export default function LanguageSwitcher() {
-  const { t, i18n } = useTranslation()
+  const { _, i18n } = useTranslation()
   const [language, setlanguage] = React.useState('kg')
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -29,8 +29,8 @@ export default function LanguageSwitcher() {
             border: 'none',
           }}
         >
-          <MenuItem value={'kg'}>Kg</MenuItem>
-          <MenuItem value={'en'}>En</MenuItem>
+          <MenuItem value={'kg'}>KG</MenuItem>
+          <MenuItem value={'en'}>RU</MenuItem>
         </Select>
       </FormControl>
     </Box>
