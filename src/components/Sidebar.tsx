@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 import { Box, List, ListItem, ListItemText } from '@mui/material'
-import { ROUTES } from '@/models/routes'
+import { NavRoutes } from '@/models/routes'
 import { styled } from '@mui/material/styles'
 
 interface SidebarProps {
@@ -26,7 +26,6 @@ const LinkWrapper = styled(Box)`
 
   &:hover {
     background-color: #fff;
-
   }
 `
 
@@ -45,10 +44,9 @@ export default function Sidebar(props: SidebarProps) {
   return (
     <Grid item xs={12} md={12} lg={12}>
       <List>
-        {ROUTES.map((link) => (
+        {NavRoutes.map((link) => (
           <ListItem sx={{ paddingLeft: 0 }} key={link.url}>
             <LinkWrapper>
-
               <LinkStyled key={link.title} href={link.url}>
                 <ListItemText primary={link.title} sx={{ fontSize: '24px' }} />
               </LinkStyled>
