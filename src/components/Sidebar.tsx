@@ -3,34 +3,56 @@ import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
-import { List, ListItem, ListItemText } from '@mui/material'
+import { Box, List, ListItem, ListItemText } from '@mui/material'
 import { ROUTES } from '@/models/routes'
+import { styled } from '@mui/material/styles'
 
 interface SidebarProps {
-  description: string
-  social: ReadonlyArray<{
-    icon: React.ElementType
-    name: string
-  }>
-  title: string
+  social: ReadonlyArray<{ icon: React.ElementType; name: string }>
 }
 
+const LinkWrapper = styled(Box)`
+  width: 100%;
+  padding: 0 10px;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 44px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 3px;
+  border-radius: 8px;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #fff;
+
+  }
+`
+
+const LinkStyled = styled(Link)`
+  width: 100%;
+  padding: 0 !important;
+  flex-shrink: 0;
+  font-size: 16px;
+  text-decoration: none;
+  color: ${({ theme }) => theme.palette.black.main};
+`
+
 export default function Sidebar(props: SidebarProps) {
-  const { description, social, title } = props
+  const { social } = props
 
   return (
     <Grid item xs={12} md={12} lg={12}>
-      <List dense={true}>
+      <List>
         {ROUTES.map((link) => (
           <ListItem sx={{ paddingLeft: 0 }} key={link.url}>
-            <Link
-              color="inherit"
-              key={link.title}
-              href={link.url}
-              style={{ padding: 0, flexShrink: 0 }}
-            >
-              <ListItemText primary={link.title} sx={{ fontSize: '24px' }} />
-            </Link>
+            <LinkWrapper>
+
+              <LinkStyled key={link.title} href={link.url}>
+                <ListItemText primary={link.title} sx={{ fontSize: '24px' }} />
+              </LinkStyled>
+            </LinkWrapper>
           </ListItem>
         ))}
       </List>
@@ -46,7 +68,6 @@ export default function Sidebar(props: SidebarProps) {
           </Stack>
         </Link>
       ))}
-      <Link href="/about-us">About us</Link>
     </Grid>
   )
 }

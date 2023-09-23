@@ -18,9 +18,6 @@ interface IProps {
 }
 
 const sidebar = {
-  title: 'About',
-  description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
   social: [
     { name: 'GitHub', icon: GitHubIcon },
     { name: 'Twitter', icon: TwitterIcon },
@@ -29,7 +26,8 @@ const sidebar = {
 }
 
 export default function RootLayout({ children }: IProps) {
-  const matches = useMediaQuery('(max-width:1280px)')
+  const matches = useMediaQuery('(max-width:1200px)')
+
   return (
     <html lang="kg">
       <body style={{ height: '100%' }}>
@@ -45,8 +43,6 @@ export default function RootLayout({ children }: IProps) {
                   <Grid xs={0} md={2} lg={2} item={true}>
                     {!matches && (
                       <Sidebar
-                        title={sidebar.title}
-                        description={sidebar.description}
                         social={sidebar.social}
                       />
                     )}
@@ -54,7 +50,7 @@ export default function RootLayout({ children }: IProps) {
                   <Grid
                     xs={12}
                     md={9}
-                    lg={9}
+                    lg={1}
                     gap={1}
                     justifyContent="center"
                     item={true}

@@ -8,6 +8,13 @@ import { useTranslation } from 'next-i18next'
 import CreateButton from '../ui/CreateButton'
 import AuthButton from '../ui/AuthButton'
 import { useEffect, useState } from 'react'
+import { styled } from '@mui/material/styles'
+
+const ToolbarStyled = styled(Toolbar)`
+  margin-bottom: 5px;
+  border-bottom: 1px;
+  background-color: #fff;
+`
 
 export default function Header() {
   const { t } = useTranslation()
@@ -22,9 +29,7 @@ export default function Header() {
 
   return (
     <React.Fragment>
-      <Toolbar
-        sx={{ borderBottom: 1, borderColor: 'divider', marginBottom: 5 }}
-      >
+      <ToolbarStyled>
         {/* <Button size="small">Subscribe</Button> */}
         <Typography
           component="h2"
@@ -39,7 +44,7 @@ export default function Header() {
         <CreateButton />
         <AuthButton />
         <LanguageSwitcher />
-      </Toolbar>
+      </ToolbarStyled>
     </React.Fragment>
   )
 }

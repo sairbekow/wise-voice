@@ -16,8 +16,16 @@ const themeOptions: ThemeOptions = {
   spacing: 4,
   typography: {
     fontFamily: roboto.style.fontFamily,
+    fontSize: 16
   },
   palette: {
+    background: {
+      default: '#f3f3f3',
+      paper: '#fff',
+    },
+    primary: {
+      main: '#0080ff',
+    },
     white: {
       main: '#fff',
     },
@@ -29,9 +37,9 @@ const themeOptions: ThemeOptions = {
     values: {
       xs: 0,
       sm: 600,
-      md: 900,
-      lg: 1200,
-      xl: 1536,
+      md: 1200,
+      lg: 1600,
+      xl: 1920
     },
   },
   zIndex: {

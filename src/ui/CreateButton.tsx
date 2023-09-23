@@ -1,7 +1,12 @@
 import { Button } from '@mui/material'
 import ModeIcon from '@mui/icons-material/Mode'
 import Link from 'next/link'
-import { ROUTES } from '@/models/routes'
+import { styled } from '@mui/material/styles'
+
+const LinkStyled = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.palette.primary.main};
+`
 
 const CreateButton = () => {
   return (
@@ -11,9 +16,9 @@ const CreateButton = () => {
       startIcon={<ModeIcon />}
       sx={{ m: 1 }}
     >
-      <Link href={'/laws/new'} style={{textDecoration: 'none', color: '#1665c0'}}>  
+      <LinkStyled href={'/laws/new'} style={{ textDecoration: 'none' }}>
         Add post
-      </Link>
+      </LinkStyled>
     </Button>
   )
 }

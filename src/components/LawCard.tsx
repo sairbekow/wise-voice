@@ -14,7 +14,7 @@ import Link from 'next/link'
 export default function LawCard(props: ILaw) {
   return (
     <Box sx={{ minWidth: 275, m: 2, my: 5 }}>
-      <Card variant="outlined">
+      <Card variant="outlined" sx={{ borderRadius: 5, p: 2 }}>
         <CardContent>
           <Box
             component="div"
@@ -33,15 +33,20 @@ export default function LawCard(props: ILaw) {
             {props.title}
           </Typography>
           <Typography variant="body2">{props.content}</Typography>
-          <Typography sx={{ mb: 4 }} color="text.secondary">
-            {`${new Date(Date.parse(props.createdAt || '0')).toLocaleDateString()}`}
+          <Typography sx={{ mb: 5, mt: 5 }} color="text.secondary">
+            {`${new Date(
+              Date.parse(props.createdAt || '0')
+            ).toLocaleDateString()}`}
           </Typography>
           <ProgressBar value={40} />
           <Box display={'flex'} gap={20}>
-            <Box sx={{ mt: 3 }} color={props.liked ? 'red' : 'gray'}>
+            <Box
+              sx={{ mt: 3, display: 'flex', alignItems: 'center', gap: 2 }}
+              color={props.liked ? 'red' : 'gray'}
+            >
               <AiOutlineLike size={30} /> {props.likes}
             </Box>
-            <Box sx={{ mt: 3 }}>
+            <Box sx={{ mt: 3, display: 'flex', alignItems: 'center', gap: 2 }}>
               <AiOutlineEye size={30} /> {props.viewed}
             </Box>
           </Box>
