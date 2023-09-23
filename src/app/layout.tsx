@@ -50,7 +50,7 @@ export default function RootLayout({ children }: IProps) {
                   <Grid
                     xs={12}
                     md={9}
-                    lg={1}
+                    lg={9}
                     gap={1}
                     justifyContent="center"
                     item={true}

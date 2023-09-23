@@ -6,5 +6,6 @@ interface IRoute {
 export const ROUTES: IRoute[] = [
   { title: 'Башкы', url: '/' },
   { title: 'Мыйзамдар', url: '/laws' },
-  { title: 'Мыйзам кошуу', url: '/laws/new' },
+  { title: 'Демилгелер', url: '/suggestions' },
+  { title: 'Демилге кошуу', url: '/suggestions/new' },
 ]
