@@ -20,7 +20,7 @@ const AuthButton = () => {
       startIcon={<PersonIcon />}
       sx={{ m: 1 }}
     >
-      <LinkStyled href={Routes.SIGN_IN_CHOOSE_OPERATOR}>Катталуу</LinkStyled>
+      <LinkStyled href="https://voter-cabinet.srs.kg/faceid/auth.xhtml">Катталуу</LinkStyled>
     </Button>
   )
 }

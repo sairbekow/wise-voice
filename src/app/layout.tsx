@@ -12,6 +12,9 @@ import '@/i18n'
 import SimpleBottomNavigation from '@/components/BottomNavigation'
 import Sidebar from '@/components/Sidebar'
 import { Box, Grid, useMediaQuery } from '@mui/material'
+import Link from 'next/link'
+import telegramIcon from '@/assets/telegram.png'
+import Image from 'next/image'
 
 interface IProps {
   children: React.ReactNode
@@ -41,11 +44,7 @@ export default function RootLayout({ children }: IProps) {
                 <Header />
                 <Grid container spacing={2} gap={1} item={true}>
                   <Grid xs={0} md={2} lg={2} item={true}>
-                    {!matches && (
-                      <Sidebar
-                        social={sidebar.social}
-                      />
-                    )}
+                    {!matches && <Sidebar social={sidebar.social} />}
                   </Grid>
                   <Grid
                     xs={12}
@@ -63,6 +62,16 @@ export default function RootLayout({ children }: IProps) {
                     </Grid>
                   )}
                 </Grid>
+                <Box sx={{ bottom: 50, right: 50, position: 'fixed' }}>
+                  <Link href="https://t.me/+r2gG3j7JJkZmZGVi">
+                    <Image
+                      src={telegramIcon}
+                      alt="telegram"
+                      width={50}
+                      height={50}
+                    />
+                  </Link>
+                </Box>
               </Container>
               {/* <Footer
                 title="Footer"

@@ -5,6 +5,14 @@ import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { styled } from '@mui/material/styles'
+
+const Wrapper = styled(Box)`
+  width: 80%;
+  background-color: #fff;
+  padding: 150px 50px;
+  border-radius: 20px;
+`
 
 const RaiseLaw = () => {
   const router = useRouter()
@@ -14,7 +22,7 @@ const RaiseLaw = () => {
   const { addLaw } = useLaw()
 
   return (
-    <Box component={'div'} display={'flex'} justifyContent={'center'}>
+    <Wrapper component={'div'} display={'flex'} justifyContent={'center'}>
       <Box
         component="form"
         noValidate
@@ -22,8 +30,8 @@ const RaiseLaw = () => {
         display={'flex'}
         flexDirection={'column'}
         alignItems={'center'}
-        minWidth={400}
-        rowGap={2}
+        minWidth={500}
+        rowGap={4}
       >
         <Typography>Rise new Law</Typography>
         <TextField
@@ -45,6 +53,7 @@ const RaiseLaw = () => {
           variant="contained"
           size="medium"
           fullWidth
+          sx={{py: 3}}
           onClick={() => {
             addLaw(7, title, content)
             router.push('/')
@@ -53,7 +62,7 @@ const RaiseLaw = () => {
           Send
         </Button>
       </Box>
-    </Box>
+    </Wrapper>
   )
 }
 

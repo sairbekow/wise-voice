@@ -6,15 +6,14 @@ import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { Avatar } from '@mui/material'
-import ProgressBar from '../ui/ProgressBar'
-import { AiOutlineLike, AiOutlineEye } from 'react-icons/ai'
-import { IDocument, ILaw } from '@/models'
+import { AiOutlineEye } from 'react-icons/ai'
+import { IDocument } from '@/models'
 import Link from 'next/link'
 
 export default function DocumentCard(props: IDocument) {
   return (
     <Box sx={{ minWidth: 275, m: 2, my: 5 }}>
-      <Card variant="outlined">
+      <Card variant="outlined" sx={{ borderRadius: 5, p: 2 }}>
         <CardContent>
           <Box
             component="div"
@@ -33,10 +32,8 @@ export default function DocumentCard(props: IDocument) {
             {props.titleKg}
           </Typography>
           <Typography variant="body2">{props.contentKg}</Typography>
-          <Typography sx={{ mb: 4 }} color="text.secondary">
-            {`${new Date(
-              Date.parse(props.createdAt || '0')
-            ).toLocaleDateString()}`}
+          <Typography sx={{ mb: 5, mt: 5 }} color="text.secondary">
+            {`${new Date().toLocaleDateString()}`}
           </Typography>
           <Box display={'flex'} gap={20}>
             <Box sx={{ mt: 3 }}>

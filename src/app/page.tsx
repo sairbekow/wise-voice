@@ -3,7 +3,7 @@ import * as React from 'react'
 import LawCard from '@/components/LawCard'
 import { useLaw } from '@/store/useLaw'
 import Loader from '@/ui/Loader'
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import Filter from '@/ui/Filter'
 import { insertionSort } from '@/utils/insertionSort'
 
@@ -20,6 +20,9 @@ export default function Home() {
 
   return (
     <main>
+      <Typography variant="h2" sx={{ fontWeight: 600, textAlign: "center", fontSize: 36 }}>
+        Мыйзамдар
+      </Typography>
       {loading ? (
         <Box display={'flex'} justifyContent={'center'} mt={30}>
           <Loader />

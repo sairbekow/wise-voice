@@ -12,7 +12,7 @@ const Laws = () => {
   return (
     <div>
       {documents.map((doc) => (
-        <DocumentCard {...doc} />
+        <DocumentCard {...doc} key={doc.id} />
       ))}
     </div>
   )

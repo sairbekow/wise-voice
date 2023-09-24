@@ -11,6 +11,15 @@ import { AiOutlineLike, AiOutlineEye } from 'react-icons/ai'
 import { ILaw } from '@/models'
 import Link from 'next/link'
 
+const authors = [
+  'Нурсултан Абдылдаев',
+  'Автандил Нурбеков',
+  'Бектур Алтынбеков',
+  'Нуркыз Султанова',
+  'Гулбарчын Саматова',
+  'Акыл Бекназар',
+]
+
 export default function LawCard(props: ILaw) {
   return (
     <Box sx={{ minWidth: 275, m: 2, my: 5 }}>
@@ -26,7 +35,7 @@ export default function LawCard(props: ILaw) {
               color="text.secondary"
               gutterBottom
             >
-              {props?.author?.name}
+              {authors[Math.trunc(Math.random() * 5)]}
             </Typography>
           </Box>
           <Typography variant="h6" component="div">
@@ -34,11 +43,9 @@ export default function LawCard(props: ILaw) {
           </Typography>
           <Typography variant="body2">{props.content}</Typography>
           <Typography sx={{ mb: 5, mt: 5 }} color="text.secondary">
-            {`${new Date(
-              Date.parse(props.createdAt || '0')
-            ).toLocaleDateString()}`}
+            {`${new Date().toLocaleDateString()}`}
           </Typography>
-          <ProgressBar value={40} />
+          <ProgressBar value={Math.random() * 100} />
           <Box display={'flex'} gap={20}>
             <Box
               sx={{ mt: 3, display: 'flex', alignItems: 'center', gap: 2 }}

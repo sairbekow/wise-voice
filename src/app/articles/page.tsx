@@ -11,6 +11,7 @@ const Articles = () => {
   useEffect(() => {
     fetchArticles()
   }, [])
+
   return (
     <div>
       {loading ? (

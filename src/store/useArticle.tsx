@@ -14,7 +14,7 @@ export const useArticle = create<IArticleState>((set, get) => ({
     try {
       set({ loading: true })
       const result = await $api.get<any, any>('/Articles/GetAll')
-      console.log(result)
+      console.log("Articles", result)
       set({ articles: result.data })
     } catch (error) {
       if (error instanceof Error) set({ error: error.message })

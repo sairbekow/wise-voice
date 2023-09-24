@@ -1,21 +1,20 @@
 'use client'
-import LawCard from '@/components/LawCard'
-import { useLaw } from '@/store/useLaw'
 import Loader from '@/ui/Loader'
 import SearchInput from '@/ui/SearchInput'
 import { Box } from '@mui/material'
-import Link from 'next/link'
 import React, { useEffect } from 'react'
+import { useDocument } from '@/store/useDocment'
+import DocumentCard from '@/components/DocumentCard'
 
 const Suggestions = () => {
-  const { fetchLaws, laws, loading, search } = useLaw()
+  const { fetchDocuments, documents, loading, search } = useDocument()
 
-  const filteredItems = laws.filter(
-    (item) => item.title.includes(search) || item.content.includes(search)
+  const filteredItems = documents.filter(
+    (item) => item.titleKg.includes(search) || item.contentKg.includes(search)
   )
 
   useEffect(() => {
-    fetchLaws()
+    fetchDocuments()
   }, [])
 
   return (
@@ -28,7 +27,7 @@ const Suggestions = () => {
       ) : (
         <div>
           {filteredItems.map((item) => (
-            <LawCard {...item} key={item.id}/>
+            <DocumentCard {...item} key={item.id}/>
           ))}
         </div>
       )}
