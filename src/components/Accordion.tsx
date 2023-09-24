@@ -45,6 +45,7 @@ export default function BasicAccordion({ userId, documentId }: IProps) {
           <TextField
             id="outlined-controlled"
             label="email"
+            type='email'
             fullWidth
             value={email}
             onChange={(event: any) => setEmail(event.target.value)}
