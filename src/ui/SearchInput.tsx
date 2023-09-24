@@ -5,8 +5,10 @@ import SearchIcon from '@mui/icons-material/Search'
 import { Box, Button } from '@mui/material'
 import { useLaw } from '@/store/useLaw'
 import { MdDelete } from 'react-icons/md'
+import { useTranslation } from 'next-i18next'
 
 export default function SearchInput() {
+  const { t } = useTranslation()
   const { search, setSearch } = useLaw()
 
   const handleChange = (event: any) => {
@@ -19,7 +21,7 @@ export default function SearchInput() {
       <TextField
         id="input-with-sx"
         variant="standard"
-        placeholder="Search..."
+        placeholder={t('search') + '...'}
         size="medium"
         // fullWidth
         value={search}

@@ -5,8 +5,10 @@ import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { useTranslation } from 'next-i18next'
 
 const RaiseLaw = () => {
+  const {t} = useTranslation()
   const router = useRouter()
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
@@ -25,17 +27,17 @@ const RaiseLaw = () => {
         minWidth={400}
         rowGap={2}
       >
-        <Typography>Rise new Law</Typography>
+        <Typography>{t('add-post')}</Typography>
         <TextField
           id="outlined-controlled"
-          label="Title"
+          label={t('title')}
           fullWidth
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
         <TextField
           id="outlined-controlled"
-          label="Description"
+          label={t("description")}
           fullWidth
           multiline
           value={content}
@@ -50,7 +52,7 @@ const RaiseLaw = () => {
             router.push('/')
           }}
         >
-          Send
+          {t('send')}
         </Button>
       </Box>
     </Box>

@@ -18,6 +18,7 @@ import SendIcon from '@mui/icons-material/Send'
 import Loader from '@/ui/Loader'
 import { useDocument } from '@/store/useDocment'
 import BasicAccordion from '@/components/Accordion'
+import { useTranslation } from 'next-i18next'
 
 interface IProps {
   params: {
@@ -26,6 +27,7 @@ interface IProps {
 }
 
 const Law = ({ params }: IProps) => {
+  const { t } = useTranslation()
   const {
     getDocument,
     getAllComments,
@@ -90,7 +92,8 @@ const Law = ({ params }: IProps) => {
             (currentDocument.initiators &&
               currentDocument.initiators.length > 9)) && (
             <>
-              <ProgressBar value={(votes * 100) / 10000} /> <span>{votes}/10000</span>
+              <ProgressBar value={(votes * 100) / 10000} />{' '}
+              <span>{votes}/10000</span>
             </>
           )}
         </CardContent>
@@ -133,7 +136,7 @@ const Law = ({ params }: IProps) => {
               {currentDocument?.viewed}
             </Box>
             <Box m={2}>
-              <span>Число инициаторов: </span>
+              <span>{t('count-of-initiators')}: </span>
               {currentDocument?.initiators?.length}
             </Box>
             <Box>
@@ -154,7 +157,7 @@ const Law = ({ params }: IProps) => {
       >
         <TextField
           id="outlined-basic"
-          label="Ой пикир калтыруу"
+          label={t('leave-a-comment')}
           variant="outlined"
           size="small"
           sx={{ width: '100%', marginRight: '20px' }}
@@ -166,7 +169,7 @@ const Law = ({ params }: IProps) => {
           endIcon={<SendIcon />}
           onClick={() => addComment(7, +params.id, comment)}
         >
-          Жөнөт
+          {t('send')}
         </Button>
       </Box>
       <List>

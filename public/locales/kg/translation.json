@@ -1,3 +1,25 @@
 {
-    "title": "Демилге"
+    "name": "Демилге",
+    "sign-in": "Кирүү",
+    "add-post": "Демилге кошуу",
+    "socials": "Социалдык тармактар",
+    "menu": {
+        "main": "Башкы",
+        "suggestions": "Сунуштар",
+        "articles": "Талкуулоолор",
+        "laws": "Мыйзамдар"
+    },
+    "learn-more": "Көбүрөөк билүү",
+    "search": "Издөө",
+    "send": "Жөнөтүү",
+    "title": "Аталышы",
+    "description": "Мазмуну",
+    "become-an-initiator": "Демилгечи болуу",
+    "count-of-initiators": "Демилгечилердин саны",
+    "leave-a-comment": "Ой-пикир калтыруу",
+    "filter": "Фильтр",
+    "views": "Көргөзүүлөр",
+    "likes": "Жактыруулар",
+    "oldest": "Эски",
+    "newest": "Жаңы"
 }

@@ -1,3 +1,25 @@
 {
-    "title": "Wise Voice Project"
+    "name": "Wise Voice",
+    "sign-in": "Войти",
+    "add-post": "Выдвинуть закон",
+    "socials": "Социальные сети",
+    "menu": {
+        "main": "Главное",
+        "suggestions": "Предложения",
+        "articles": "Обсуждения",
+        "laws": "Законы"
+    },
+    "learn-more": "Узнать больше",
+    "search": "Поиск",
+    "send": "Отправить",
+    "title": "Название",
+    "description": "Описание",
+    "become-an-initiator": "Стать инициатором",
+    "count-of-initiators": "Количество инициаторов",
+    "leave-a-comment": "Оставить комментарий",
+    "filter": "Фильтр",
+    "views": "Просмотры",
+    "likes": "Лайки",
+    "oldest": "Старые",
+    "newest": "Новые"
 }

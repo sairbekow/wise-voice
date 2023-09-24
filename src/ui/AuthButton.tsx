@@ -4,6 +4,7 @@ import { Button } from '@mui/material'
 import Link from 'next/link'
 import { Routes } from '@/models/routes'
 import { styled } from '@mui/material/styles'
+import { useTranslation } from 'next-i18next'
 
 const LinkStyled = styled(Link)`
   width: 100%;
@@ -13,6 +14,7 @@ const LinkStyled = styled(Link)`
 `
 
 const AuthButton = () => {
+  const { t } = useTranslation()
   return (
     <Button
       variant="outlined"
@@ -20,7 +22,9 @@ const AuthButton = () => {
       startIcon={<PersonIcon />}
       sx={{ m: 1 }}
     >
-      <LinkStyled href={Routes.SIGN_IN_CHOOSE_OPERATOR}>Катталуу</LinkStyled>
+      <LinkStyled href={Routes.SIGN_IN_CHOOSE_OPERATOR}>
+        {t('sign-in')}
+      </LinkStyled>
     </Button>
   )
 }

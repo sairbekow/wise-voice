@@ -10,8 +10,10 @@ import ProgressBar from '../ui/ProgressBar'
 import { AiOutlineLike, AiOutlineEye } from 'react-icons/ai'
 import { IDocument, ILaw } from '@/models'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 
 export default function DocumentCard(props: IDocument) {
+  const { t } = useTranslation()
   return (
     <Box sx={{ minWidth: 275, m: 2, my: 5 }}>
       <Card variant="outlined">
@@ -50,7 +52,7 @@ export default function DocumentCard(props: IDocument) {
               href={`/laws/${props.id}`}
               style={{ textDecoration: 'none', color: '#1665c0' }}
             >
-              Learn More
+              {t('learn-more')}
             </Link>
           </Button>
         </CardActions>

@@ -39,7 +39,7 @@ export default function Header() {
           noWrap
           sx={{ flex: 1 }}
         >
-          {t('title')}
+          {t('name')}
         </Typography>
         <CreateButton />
         <AuthButton />
