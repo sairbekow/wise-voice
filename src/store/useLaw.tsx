@@ -122,6 +122,3 @@ export const useLaw = create<ILawState>((set, get) => ({
 }))
 
 
-export const useDocument = create((set, get) => ({
-  documents: []
-}))

@@ -1,7 +1,7 @@
 'use client'
 import * as React from 'react'
 import LawCard from '@/components/LawCard'
-import { useLaw } from '@/store/store'
+import { useLaw } from '@/store/useLaw'
 import Loader from '@/ui/Loader'
 import { Box } from '@mui/material'
 import Filter from '@/ui/Filter'

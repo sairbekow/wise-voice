@@ -23,23 +23,24 @@ export interface ILaw {
 
 export interface IDocument {
   id: number
-  titleRu: string
+  titleRu?: string
   titleKg: string
-  contentRu: string
+  contentRu?: string
   contentKg: string
   viewed: number
   authorId: number
   isReadyForVote: false
   initiators?: []
-  author: null
-  createdAt: string
+  author?: IUser
+  createdAt?: string
 }
 
 export interface IComment {
   id: number
   author?: IUser
   authorId: number
-  suggestionId: number
+  suggestionId?: number
+  documentId?: number
   text: string
 }
 
@@ -68,17 +69,20 @@ export interface IDocumentState {
   currentDocument: IDocument | undefined
   commentsUnderCurrentDocument: IComment[]
   loading: boolean
+  votes: number
   filter: 'likes' | 'views' | 'oldest' | 'newest' | ''
   search: string
   error: string | null
   fetchDocuments: () => void
+  getVotes: (docId: number) => void
   getDocument: (id: number) => void
   addDocument: (userId: number, title: string, content: string) => void
-  removeDocument: (id: number) => void
+  addInitiator: (email: string, documentId: number, userId: number) => void
+  getInitiators: (documentId: number) => void
   like: (userId: number, docId: number) => void
   getAllComments: (id: number) => void
   addComment: (authorId: number, docId: number, text: string) => void
   setFilter: (filter: '' | 'likes' | 'views' | 'newest' | 'oldest') => void
   setSearch: (search: string) => void
-  vote: (id: number) => void
+  voteForDocument: (docId: number, userId: number, isSupported: boolean) => void
 }

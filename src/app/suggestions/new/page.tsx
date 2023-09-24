@@ -1,5 +1,5 @@
 'use client'
-import { useLaw } from '@/store/store'
+import { useLaw } from '@/store/useLaw'
 import { Button, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'

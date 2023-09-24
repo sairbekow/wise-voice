@@ -16,9 +16,7 @@ import React, { useEffect, useState } from 'react'
 import { AiOutlineLike, AiOutlineEye } from 'react-icons/ai'
 import Comment from '@/components/Comment'
 import SendIcon from '@mui/icons-material/Send'
-import { useLaw } from '@/store/store'
-import { ILaw } from '@/models'
-import NotFound from '@/ui/NotFound'
+import { useLaw } from '@/store/useLaw'
 import Loader from '@/ui/Loader'
 
 interface IProps {
@@ -27,7 +25,7 @@ interface IProps {
   }
 }
 
-const Law = ({ params }: IProps) => {
+const Suggestion = ({ params }: IProps) => {
   const {
     getLaw,
     getAllComments,
@@ -145,4 +143,4 @@ const Law = ({ params }: IProps) => {
   )
 }
 
-export default Law
+export default Suggestion

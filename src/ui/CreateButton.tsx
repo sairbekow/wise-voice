@@ -16,7 +16,7 @@ const CreateButton = () => {
       startIcon={<ModeIcon />}
       sx={{ m: 1 }}
     >
-      <LinkStyled href={'/laws/new'} style={{ textDecoration: 'none' }}>
+      <LinkStyled href={'/suggestions/new'} style={{textDecoration: 'none', color: '#1665c0'}}>  
         Add post
       </LinkStyled>
     </Button>

@@ -5,7 +5,7 @@ import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
-import { useLaw } from '@/store/store'
+import { useLaw } from '@/store/useLaw'
 
 export default function Filter() {
   const { filter, setFilter } = useLaw()

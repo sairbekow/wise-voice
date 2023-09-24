@@ -3,7 +3,7 @@ import * as React from 'react'
 import TextField from '@mui/material/TextField'
 import SearchIcon from '@mui/icons-material/Search'
 import { Box, Button } from '@mui/material'
-import { useLaw } from '@/store/store'
+import { useLaw } from '@/store/useLaw'
 import { MdDelete } from 'react-icons/md'
 
 export default function SearchInput() {

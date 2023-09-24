@@ -1,8 +1,20 @@
-import React from 'react'
+'use client'
+import DocumentCard from '@/components/DocumentCard'
+import { useDocument } from '@/store/useDocment'
+import React, { useEffect } from 'react'
 
 const Laws = () => {
+  const { documents, fetchDocuments } = useDocument()
+  useEffect(() => {
+    fetchDocuments()
+  }, [])
+
   return (
-    <div>Laws</div>
+    <div>
+      {documents.map((doc) => (
+        <DocumentCard {...doc} />
+      ))}
+    </div>
   )
 }
 

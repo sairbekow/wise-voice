@@ -39,7 +39,7 @@ const LinkStyled = styled(Link)`
 `
 
 export default function Sidebar(props: SidebarProps) {
-  const { social } = props
+  const { social } = props;
 
   return (
     <Grid item xs={12} md={12} lg={12}>

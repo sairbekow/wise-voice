@@ -1,6 +1,6 @@
 'use client'
 import LawCard from '@/components/LawCard'
-import { useLaw } from '@/store/store'
+import { useLaw } from '@/store/useLaw'
 import Loader from '@/ui/Loader'
 import SearchInput from '@/ui/SearchInput'
 import { Box } from '@mui/material'
