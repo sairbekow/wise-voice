@@ -20,7 +20,7 @@ const CreateButton = () => {
       sx={{ m: 1 }}
     >
       <LinkStyled
-        href={Routes.SUGGESTIONS_CREATE}
+        href={Routes.LAWS_CREATE}
         style={{ textDecoration: 'none', color: '#1665c0' }}
       >
         {t('add-post')}

@@ -13,11 +13,7 @@ import {
 } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { AiOutlineLike, AiOutlineDislike, AiOutlineEye } from 'react-icons/ai'
-import Comment from '@/components/Comment'
-import SendIcon from '@mui/icons-material/Send'
 import Loader from '@/ui/Loader'
-import { useDocument } from '@/store/useDocment'
-import BasicAccordion from '@/components/Accordion'
 import { useArticle } from '@/store/useArticle'
 
 interface IProps {
