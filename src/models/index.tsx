@@ -35,6 +35,16 @@ export interface IDocument {
   createdAt?: string
 }
 
+export interface IArticle {
+  id: number
+  title: string
+  linkToBill: string
+  authorName: string
+  linkToArticle: string
+  likes: number
+  unlikes: number
+}
+
 export interface IComment {
   id: number
   author?: IUser
@@ -62,6 +72,19 @@ export interface ILawState {
   setFilter: (filter: '' | 'likes' | 'views' | 'newest' | 'oldest') => void
   setSearch: (search: string) => void
   vote: (id: number) => void
+}
+
+export interface IArticleState {
+  articles: IArticle[]
+  currentArticle: IArticle | undefined
+  loading: boolean
+  filter: 'likes' | 'views' | 'oldest' | 'newest' | ''
+  search: string
+  error: string | null
+  fetchArticles: () => void
+  getArticle: (id: number) => void
+  addArticle: () => void
+  likeArticle: (userId: number, articleId: number, likeOrUnlike: boolean) => void
 }
 
 export interface IDocumentState {
