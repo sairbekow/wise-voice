@@ -69,6 +69,24 @@ export const useLaw = create<ILawState>((set, get) => ({
       set({ loading: false })
     }
   },
+  addRule: async (userId, titleKg, contentKg, titleRu, contentRu) => {
+    try {
+      set({ loading: true })
+      const result = await $api.post<any, any>('/Documents/Add', {
+        titleKg,
+        contentKg,
+        titleRu,
+        contentRu,
+        authorId: userId,
+      })
+      console.log('added rule', result)
+    } catch (error) {
+      if (error instanceof Error) set({ error: error.message })
+      else set({ error: 'Uknown error!' })
+    } finally {
+      set({ loading: false })
+    }
+  },
   removeLaw: (id) => {
     set({ laws: [...get().laws.filter((law) => law.id !== id)] })
   },

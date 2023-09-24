@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Box, TextField, Button } from '@mui/material'
 import { useDocument } from '@/store/useDocment'
+import { useTranslation } from 'next-i18next'
 
 interface IProps {
   userId: number
@@ -13,6 +14,7 @@ interface IProps {
 }
 
 export default function BasicAccordion({ userId, documentId }: IProps) {
+  const { t } = useTranslation()
   const { addInitiator } = useDocument()
   const [email, setEmail] = React.useState('')
 
@@ -27,7 +29,7 @@ export default function BasicAccordion({ userId, documentId }: IProps) {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography>Стать инициатором</Typography>
+        <Typography>{t('become-an-initiator')}</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Box
@@ -43,12 +45,18 @@ export default function BasicAccordion({ userId, documentId }: IProps) {
           <TextField
             id="outlined-controlled"
             label="email"
+            type='email'
             fullWidth
             value={email}
             onChange={(event: any) => setEmail(event.target.value)}
           />
-          <Button variant="contained" size="medium" fullWidth onClick={handleChange}>
-            Send
+          <Button
+            variant="contained"
+            size="medium"
+            fullWidth
+            onClick={handleChange}
+          >
+            {t('send')}
           </Button>
         </Box>
       </AccordionDetails>

@@ -9,8 +9,10 @@ import { Avatar } from '@mui/material'
 import { AiOutlineEye } from 'react-icons/ai'
 import { IDocument } from '@/models'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 
 export default function DocumentCard(props: IDocument) {
+  const { t } = useTranslation()
   return (
     <Box sx={{ minWidth: 275, m: 2, my: 5 }}>
       <Card variant="outlined" sx={{ borderRadius: 5, p: 2 }}>
@@ -47,7 +49,7 @@ export default function DocumentCard(props: IDocument) {
               href={`/laws/${props.id}`}
               style={{ textDecoration: 'none', color: '#1665c0' }}
             >
-              Learn More
+              {t('learn-more')}
             </Link>
           </Button>
         </CardActions>

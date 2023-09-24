@@ -1,5 +1,6 @@
 export enum Routes {
   HOME = '/',
+  LAWS_CREATE = '/laws/create',
   ARTICLES = '/articles',
   SUGGESTIONS = '/suggestions',
   SUGGESTIONS_CREATE = '/suggestions/create',

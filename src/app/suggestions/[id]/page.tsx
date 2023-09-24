@@ -18,6 +18,7 @@ import Comment from '@/components/Comment'
 import SendIcon from '@mui/icons-material/Send'
 import { useLaw } from '@/store/useLaw'
 import Loader from '@/ui/Loader'
+import { useTranslation } from 'next-i18next'
 
 interface IProps {
   params: {
@@ -26,6 +27,7 @@ interface IProps {
 }
 
 const Suggestion = ({ params }: IProps) => {
+  const {t} = useTranslation()
   const {
     getLaw,
     getAllComments,
@@ -113,7 +115,7 @@ const Suggestion = ({ params }: IProps) => {
       >
         <TextField
           id="outlined-basic"
-          label="Ой пикир калтыруу"
+          label={t("leave-a-comment")}
           variant="outlined"
           size="small"
           sx={{ width: '100%', marginRight: '20px' }}
@@ -125,7 +127,7 @@ const Suggestion = ({ params }: IProps) => {
           endIcon={<SendIcon />}
           onClick={() => addComment(7, +params.id, comment)}
         >
-          Жөнөт
+          {t('send')}
         </Button>
       </Box>
       <List>

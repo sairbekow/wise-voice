@@ -65,6 +65,7 @@ export interface ILawState {
   fetchLaws: () => void
   getLaw: (id: number) => void
   addLaw: (userId: number, title: string, content: string) => void
+  addRule: (userId: number, titleKg: string, contentKg: string, titleRu: string, contentRu: string) => void
   removeLaw: (id: number) => void
   like: (userId: number, lawId: number) => void
   getAllComments: (id: number) => void

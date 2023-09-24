@@ -9,8 +9,10 @@ import { Avatar } from '@mui/material'
 import { AiOutlineEye } from 'react-icons/ai'
 import { IArticle } from '@/models'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 
 export default function ArticleCard(props: IArticle) {
+  const { t } = useTranslation()
   return (
     <Box sx={{ minWidth: 275, m: 2, my: 5 }}>
       <Card variant="outlined">
@@ -49,7 +51,7 @@ export default function ArticleCard(props: IArticle) {
               href={props.linkToArticle}
               style={{ textDecoration: 'none', color: '#1665c0' }}
             >
-              Learn More
+              {t('learn-more')}
             </Link>
           </Button>
         </CardActions>
